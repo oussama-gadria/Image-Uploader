@@ -1,47 +1,46 @@
 import axios from "axios";
-import { useState } from "react";
 import ProgressBar from "../components/ProgressBar";
 import UploadImage from "../components/UploadImage";
-import SuccesUpload from "../components/SuccessUpload";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function ImageUpload() {
+const ImageUpload =()=>{
     const [selectedFile, setSelectedFile] = useState();
     const [uploading, setUploading] = useState(false);
     const [progressPercent, setProgressPercent] = useState('45%');
-    const [isUploaded,setIsUploaded]=useState(false)
-
-    const changeHandler = (e) => {
-        setSelectedFile(e.target.files[0]);
-        setUploading(true)
-        setTimeout(() => {
+    const navigate=useNavigate();
+    const changeHandler=(e)=>{
+        setSelectedFile(e.target.files[0]);   
+    }
+    useEffect(()=>{ 
+        if(selectedFile){ 
+            const formData = new FormData();
+            formData.append("image",selectedFile);
+            axios.post("http://localhost:5000/file/upload", formData);
+            setUploading(true);
             setTimeout(() => {
-                setProgressPercent('80%');
                 setTimeout(() => {
-                    setProgressPercent('100%');
+                    setProgressPercent('80%');
                     setTimeout(() => {
-                        setUploading(false);
-                        setIsUploaded(true)
-                    }, 300)
+                        setProgressPercent('100%');
+                        setTimeout(() => {
+                            setUploading(false);
+                            navigate("/successUpload")
+                        }, 400)
+                    }, 1000)
                 }, 1000)
             }, 1000)
-        }, 1000)
-    }
+           }
+    },[selectedFile])
 
-    const saveImage = async () => {
-        const formData = new FormData();
-        formData.append("image", selectedFile);
-        await axios.post("http://localhost:5000/file/upload", formData);
-    };
+
     return (
         <>
             {uploading &&
                 <ProgressBar progressPercent={progressPercent} />
             }
-            {(!uploading && !isUploaded) &&
-                <UploadImage changeHandler={changeHandler} />
-            }
-            {(!uploading && isUploaded) && 
-            <SuccesUpload/>
+            {!uploading  &&
+                <UploadImage  changeHandler={(e)=>changeHandler(e)} />
             }
         </>
     )

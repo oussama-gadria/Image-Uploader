@@ -26,6 +26,12 @@ app.use('/file',upload)
 
 
 
+// Autoriser toutes les requêtes CORS
+app.use(cors());
+//Routes 
+app.use('/file',upload)
+
+
 //creation du serveur
 const server=http.createServer(app);
 server.listen(5000,()=>{
