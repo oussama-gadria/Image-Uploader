@@ -23,11 +23,11 @@ This is an Image Uploader application built using React, Node.js, Express, and T
 
 To run the Image Uploader application locally, follow these steps:
 
-1. Clone the repository:
+# Clone the repository:
 
    ```bash
    git clone https://github.com/oussama-gadria/image-uploader.git
-2. Navigate to the project directory:   
+# Navigate to the project directory:   
 cd image-uploader
 
 # Install the dependencies:
