@@ -19,10 +19,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+<<<<<<< Updated upstream
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
 });
+=======
+
+// Autoriser toutes les requêtes CORS
+app.use(cors());
+//Routes 
+app.use('/file',upload)
+>>>>>>> Stashed changes
 
 // error handler
 app.use(function(err, req, res, next) {

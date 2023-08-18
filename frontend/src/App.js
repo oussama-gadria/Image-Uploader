@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+<<<<<<< Updated upstream
 
 function App() {
   return (
@@ -18,6 +19,27 @@ function App() {
           Learn React
         </a>
       </header>
+=======
+import SuccesUpload from './components/SuccessUpload';
+import ImageUpload from './pages/ImageUpload';
+import { Route, Routes } from 'react-router-dom';
+
+function App() {
+  return (
+
+    <div className='h-[100vh] bg-lightGray'>
+      <Routes> 
+        <Route 
+          path='/' 
+          element={<ImageUpload/>}> 
+        </Route>
+        <Route 
+          path='/successUpload' 
+          element={<SuccesUpload/>}>
+        </Route>
+      </Routes>
+      
+>>>>>>> Stashed changes
     </div>
   );
 }
