@@ -1,6 +1,5 @@
 import './App.css';
-
-import ProgressBar from './components/ProgressBar';
+import SuccesUpload from './components/SuccesUpload';
 import ImageUpload from './pages/ImageUpload';
 import { Route, Routes } from 'react-router-dom';
 
