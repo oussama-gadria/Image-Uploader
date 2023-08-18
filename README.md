@@ -25,13 +25,16 @@ To run the Image Uploader application locally, follow these steps:
 
 # Clone the repository:
 
-   ```bash
-   git clone https://github.com/oussama-gadria/image-uploader.git
-# Navigate to the project directory:   
-cd image-uploader
+   `git clone https://github.com/oussama-gadria/image-uploader.git`
+   
+# Navigate to the project directory:
+ 
+`cd image-uploader`
 
 # Install the dependencies:
-npm install
+
+`npm install`
 
 # Start the development server:
-npm start
+
+`npm start`
