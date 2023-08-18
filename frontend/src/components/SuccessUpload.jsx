@@ -21,7 +21,6 @@ const SuccesUpload = () => {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }
